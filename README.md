@@ -132,6 +132,8 @@ marine-mammal-sound-classifier/
 │   └── ast/
 ├── .gitattributes      # Git LFS tracking for *.pt
 ├── .gitignore
+├── load_data.py
+├── requirements.txt
 └── README.md
 ```
 
