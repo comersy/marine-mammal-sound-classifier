@@ -12,8 +12,6 @@ A submarine or underwater sensor array continuously receives acoustic signals fr
 
 This project explores whether deep learning classifiers trained on labeled bioacoustic data can reliably identify marine mammal species from raw acoustic recordings. With a sufficiently large and diverse dataset, such a classifier could serve as a biological noise filter in a passive sonar processing pipeline — isolating non-biological signals for further analysis.
 
-The Watkins database covers 32 species across 7 decades of recordings in diverse geographic regions, making it a strong foundation. Scaling to the full 14,000+ clip collection and adding real-world noise augmentation would be the primary steps toward operational relevance.
-
 ---
 
 ## Results
