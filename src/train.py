@@ -13,7 +13,7 @@ from model_ast import MarineAST
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model", choices=["cnn_scratch", "resnet18", "ast"], required=True)
-parser.add_argument("--epochs", type=int, default=50)
+parser.add_argument("--epochs", type=int, default=20)
 args = parser.parse_args()
 
 output_dir = f"outputs/{args.model}"
