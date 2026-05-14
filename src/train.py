@@ -13,8 +13,7 @@ from model_ast import MarineAST
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model", choices=["cnn_scratch", "resnet18", "ast"], required=True)
-parser.add_argument("--epochs", type=int, default=150)
-parser.add_argument("--patience", type=int, default=10)
+parser.add_argument("--epochs", type=int, default=20)
 args = parser.parse_args()
 
 output_dir = f"outputs/{args.model}"
@@ -44,9 +43,6 @@ optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
 
 history = {"train_loss": [], "train_acc": [], "val_loss": [], "val_acc": []}
 N_EPOCHS = args.epochs
-
-best_val_loss = float("inf")
-patience_counter = 0
 
 for epoch in range(N_EPOCHS):
     model.train()
@@ -92,21 +88,11 @@ for epoch in range(N_EPOCHS):
           f"train_loss {train_loss:.4f} train_acc {train_acc:.4f} | "
           f"val_loss {val_loss:.4f} val_acc {val_acc:.4f}")
 
-    if val_loss < best_val_loss:
-        best_val_loss = val_loss
-        patience_counter = 0
-        torch.save(model.state_dict(), f"{output_dir}/model.pt")
-        print(f"  ✓ Best model saved (val_loss={val_loss:.4f})")
-    else:
-        patience_counter += 1
-        if patience_counter >= args.patience:
-            print(f"Early stopping at epoch {epoch+1}")
-            break
-
+torch.save(model.state_dict(), f"{output_dir}/model.pt")
 with open(f"{output_dir}/history.json", "w") as f:
     json.dump(history, f, indent=2)
 
-epochs = range(1, len(history["train_loss"]) + 1)
+epochs = range(1, N_EPOCHS + 1)
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4))
 ax1.plot(epochs, history["train_loss"], label="train")
 ax1.plot(epochs, history["val_loss"], label="val")
