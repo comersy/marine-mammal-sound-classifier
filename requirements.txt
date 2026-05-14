@@ -1,0 +1,12 @@
+datasets
+torchcodec
+soundfile
+torchaudio
+tqdm
+matplotlib
+scikit-learn 
+seaborn
+tranformers
+librosa
+collections
+random
