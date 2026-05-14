@@ -142,7 +142,7 @@ marine-mammal-sound-classifier/
 ## Setup
 
 ```bash
-pip install datasets soundfile torchaudio torchvision transformers librosa scikit-learn seaborn matplotlib tqdm
+pip install -r requirements.txt
 ```
 
 Download and prepare the dataset (stratified 80/20 split per species):
