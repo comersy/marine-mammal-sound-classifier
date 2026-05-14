@@ -4,6 +4,18 @@ Automated detection and classification of marine mammals from passive underwater
 
 ---
 
+## Motivation & Applications
+
+Passive acoustic monitoring is one of the most effective methods for underwater surveillance — unlike active sonar, it emits no signal and cannot be detected. In naval environments, the ability to automatically distinguish biological acoustic sources from anthropogenic ones is operationally critical.
+
+A submarine or underwater sensor array continuously receives acoustic signals from its environment. Marine mammals — whales, dolphins, seals — generate powerful, species-specific vocalizations that can mask or be confused with vessel signatures, torpedoes, or other threats. Misclassifying a humpback whale as a contact is a costly false positive; failing to detect a contact behind biological noise is worse.
+
+This project explores whether deep learning classifiers trained on labeled bioacoustic data can reliably identify marine mammal species from raw acoustic recordings. With a sufficiently large and diverse dataset, such a classifier could serve as a biological noise filter in a passive sonar processing pipeline — isolating non-biological signals for further analysis.
+
+The Watkins database covers 32 species across 7 decades of recordings in diverse geographic regions, making it a strong foundation. Scaling to the full 14,000+ clip collection and adding real-world noise augmentation would be the primary steps toward operational relevance.
+
+---
+
 ## Results
 
 | Model | Val Accuracy | Val Weighted F1 |
